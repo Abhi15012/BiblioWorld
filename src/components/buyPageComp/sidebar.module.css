@@ -1,0 +1,38 @@
+*{
+
+margin: 0px;
+padding : 0px;
+text-decoration: none;
+
+}
+
+.SBContainer{
+max-width : 300px;
+width: 233px;
+
+height: 100vh;
+background-color: rgb(25, 25, 26);
+
+}
+.sidebar{
+  display: grid;
+  grid-template-rows:19vh 65vh 16vh;
+
+}
+
+
+.Mainsec{
+ display: grid;
+ grid-gap: 9px 26px
+}
+
+button{
+  border-radius: 15px;
+
+}
+
+.icons{
+
+  
+}
+

@@ -1,0 +1,144 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Brygada+1918:ital,wght@0,400..700;1,400..700&family=Overpass:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+
+
+
+
+*{
+  box-sizing: border-box;
+    margin:0px;
+    padding: 0px;
+  
+    
+    
+  }
+  
+  :root{
+
+    width: 100%;
+    height: 100vh;
+
+  overflow: hidden;
+  
+
+  }
+ .page{
+
+background: radial-gradient( circle ,#59B4C3,#211C6A );
+
+width: 100%;
+height: 100vh;
+
+overflow: hidden;
+ }
+.container{
+  max-height: 500px;
+  height: 550px;
+  width: 330px;
+  margin-left: 500px;
+  margin-top: 50px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(223 210 210 / 36%);
+  border-left: 2px solid rgb(208 207 207 / 56%);
+  border-top: 1px solid rgb(201 196 196 / 56%);
+  border-bottom: 7px solid rgb(216 211 211 / 56%);
+  border-right: 1px solid rgb(171 163 163 / 56%);
+  backdrop-filter: blur(8px);
+  box-shadow: 6px 10px 26px  #ffffffbd;
+
+  font-family: "Brygada 1918", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+label{
+  margin-left:31px;
+}
+
+h4{
+
+  color :rgba(255, 249, 249, 0.961);
+  position: relative;
+  top: -25px;
+  left: -40px;
+}
+
+.email{
+border-radius: 10px;
+width:250px;
+margin: 10px 30px;
+height: 40px;
+border: 1px solid rgba(194, 188, 188, 0.566);
+
+}
+
+.InputBar{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+position: relative;
+top:-10px;
+}
+
+.buttonbar{
+  margin-left: 20px;
+  margin-right: 12px;
+}
+.text{
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+margin-bottom: -63px;
+margin-top: 25px;
+margin-left: -5px;
+display: flex;
+flex-wrap: wrap;
+flex-direction: row;
+font-size: 10px;
+}
+
+.text1{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+  margin-bottom: -30px;
+  margin-top: 10px;
+  margin-left: -5px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  }
+
+
+.eye{
+  border-radius: 10px;
+  width: 250px;
+  margin: 10px 30px;
+  height: 40px;
+  border: 1px solid rgba(194, 188, 188, 0.566);
+  background-color: whitesmoke;
+}
+
+.eye input{
+  height: 40px;
+  width: 200px;
+  margin-top: -59px;
+  background: none;
+  border: 1px solid white;
+  margin: -1px 2px
+}
+.eye button{
+  z-index: 10;
+width: 43px;
+height: 41px;
+border: 1px solid #ffffff00;
+border-radius: 10px;
+margin-top: -2px;
+background-color: #ffffff00;
+
+}
