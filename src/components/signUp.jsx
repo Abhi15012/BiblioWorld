@@ -1,53 +1,59 @@
 import React, { useState } from "react";
 import styles from "./signUp.module.css";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { AuthO } from './firebase'; // Ensure this import is correct
+import { AuthO } from "./firebase"; // Ensure this import is correct
 import axios from "axios";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-
 
 const SignUp = () => {
   const [getEmail, setEmail] = useState("");
   const [getName, setName] = useState("");
   const [getPassword, setPassword] = useState("");
   const [getConfirmPassword, setConfirmPassword] = useState("");
-const navigate=useNavigate()
+  const navigate = useNavigate();
   async function handleSignUp(event) {
     event.preventDefault(); // Prevent default form submission behavior
 
-    if (getPassword !== getConfirmPassword) {
+    if (getPassword === getConfirmPassword) {
+      const obj = {
+        name: getName,
+        email: getEmail,
+        password: getPassword,
+      };
+
+      try {
+        const user = await createUserWithEmailAndPassword(
+          AuthO,
+          getEmail,
+          getPassword
+        );
+        console.log(user);
+        toast.success("User created successfully", {
+          position: "top-right",
+        });
+        if (user) {
+          setTimeout(() => {
+            navigate("/log");
+          }, 3100);
+        }
+
+        await axios.post('https://bookbuy-8cca8-default-rtdb.firebaseio.com/register.json', obj);
+         toast.success("Submitted successfully", {
+          position: "top-right",
+        });
+      } catch (error) {
+        console.error("Error creating user:", error);
+        toast.error(`Error: ${error.message}`, {
+          position: "top-right",
+        });
+      }
+    }
+    else{
+
       toast.warn("Passwords do not match",{
         position:"top-right"
-      });
-  
-    }
 
-    const obj = {
-      name: getName,
-      email: getEmail,
-      password: getPassword,
-    };
-
-    try {
-      const user = await createUserWithEmailAndPassword(AuthO, getEmail, getPassword);
-      console.log(user);
-      toast.success("User created successfully",{
-        
-          position:"top-right"
-        
-      });
-      if(user){
-    setTimeout(()=>{navigate('/log')},3100)
-
-      }
-
-      // await axios.post('https://bookbuy-8cca8-default-rtdb.firebaseio.com/register.json', obj);
-      // alert("Submitted successfully");
-    } catch (error) {
-      console.error('Error creating user:', error);
-      toast.error(`Error: ${error.message}`,{
-        position:"top-right"
       });
     }
   }
@@ -91,6 +97,7 @@ const navigate=useNavigate()
               className={styles.email}
               placeholder="Password"
               id="password"
+
               onChange={(event) => setPassword(event.target.value)}
               required
             />
