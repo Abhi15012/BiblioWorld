@@ -36,7 +36,7 @@ const LoginPage = () => {
       toast.success("User LOGIN successfully");
       setTimeout(() => {
         navigate("/");
-      }, 3100);
+      }, 2000);
       // await axios.post(
       //   "https://bookbuy-8cca8-default-rtdb.firebaseio.com/register.json",
       //   obj

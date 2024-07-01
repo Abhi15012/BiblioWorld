@@ -24,10 +24,11 @@
     overflow: hidden;
     display: flex;
    
-
- 
-    width: 100%;
-    height: 100vh;
+background-image: url('/library-art-book-theme-rth0ek661fi3zdwz.jpg');
+ background-repeat: no-repeat;
+background-position: left;
+   
+  background-size: cover;
   overflow: hidden;
   }
 
@@ -48,9 +49,9 @@
   align-items: center;
   justify-content: center;
   background-color: rgb(249, 249, 249);
-  border-left: 5px solid rgba(232, 226, 226, 0.56);
+  border-left: 2px solid rgba(109, 109, 109, 0.56);
   border-top: 1px solid rgb(201 196 196 / 56%);
-  border-bottom: 2px solid rgb(216 211 211 / 56%);
+  border-bottom: 3px solid rgba(58, 57, 57, 0.56);
   border-right: 1px solid rgb(171 163 163 / 56%);
   backdrop-filter: blur(8px);
   box-shadow: 6px 10px 26px  #464646bd;

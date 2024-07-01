@@ -37,23 +37,15 @@ const SignUp = () => {
             navigate("/log");
           }, 3100);
         }
-
-        await axios.post('https://bookbuy-8cca8-default-rtdb.firebaseio.com/register.json', obj);
-         toast.success("Submitted successfully", {
-          position: "top-right",
-        });
       } catch (error) {
         console.error("Error creating user:", error);
         toast.error(`Error: ${error.message}`, {
           position: "top-right",
         });
       }
-    }
-    else{
-
-      toast.warn("Passwords do not match",{
-        position:"top-right"
-
+    } else {
+      toast.warn("Passwords do not match", {
+        position: "top-right",
       });
     }
   }
@@ -97,7 +89,6 @@ const SignUp = () => {
               className={styles.email}
               placeholder="Password"
               id="password"
-
               onChange={(event) => setPassword(event.target.value)}
               required
             />

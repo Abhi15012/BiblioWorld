@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import axios from "axios";
 import {
   Link,
@@ -6,19 +6,22 @@ import {
   createBrowserRouter,
   useNavigate,
 } from "react-router-dom";
-import {GiShoppingCart } from "react-icons/gi";
+import { GiShoppingCart } from "react-icons/gi";
 import { onAuthStateChanged } from "firebase/auth";
 import { AuthO } from "../firebase";
-import { useNavigation } from "react-router-dom";
+// import { useNavigation } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import CardBuy from "../buyPageComp/cardBuy";
+import { toast } from "react-toastify";
+import CartStore from "../../store/cartStore";
+;
 const BuyPage = () => {
   const navigator = useNavigate();
   const nav = useNavigate();
-  const NavCart=useNavigate()
+  const NavCart = useNavigate();
 
   const [user, setUser] = useState(null);
-  const navigation = useNavigation();
+  const navigation = useNavigate();
   const inputData = useRef("");
   const [getData, setData] = useState([]);
   useEffect(
@@ -35,26 +38,29 @@ const BuyPage = () => {
 
     []
   );
-  // console.log(user.userId);
-  console.log(user);
+
   async function fetchData() {
     const searchRef = inputData.current.value;
-    console.log(searchRef);
 
     try {
       const getdata = await axios.get(
         `https://www.googleapis.com/books/v1/volumes?q=${searchRef}&key=AIzaSyBEWWdDIKV-_3Bgb06FYbASntJK8cDbOCQ`
       );
       const jsonArr = getdata.data.items;
-
+  
       setData(jsonArr);
+
+
     } catch (err) {
       console.log(err.message);
     }
   }
 
   const handleSignOut = async () => {
-    console.log("hello");
+    toast.success("signOut successful"<{
+
+      autoClose:1000
+    });
     try {
       await signOut(AuthO);
       navigator("/log");
@@ -63,27 +69,30 @@ const BuyPage = () => {
     }
   };
 
+  {getData.length !==0 ? inputData.current.value="" :inputData.current.value }
+
+
+
   return (
+    
     <>
+   <CartStore>
       <div className="Page">
         <div className="sidebar"></div>
         <div className="mainbox">
           <div className="searchBar">
             <div className="searchComp">
-            <input
-              type="text"
-              className="search"
-              placeholder="bookname or Author"
-              ref={inputData}
-            />
-               <button className="btn btn-info searchBut" onClick={fetchData}>
+              <input
+                type="text"
+                className="search"
+                placeholder="bookname or Author"
+                ref={inputData}
+              />
+              <button className="btn btn-info searchBut" onClick={fetchData}>
                 Search
               </button>
-              </div>
+            </div>
             <div className="buttons">
-           
-
-              
               <div className="butSell">
                 {" "}
                 <button
@@ -95,24 +104,23 @@ const BuyPage = () => {
                   Sell Books
                 </button>
               </div>
-              <button type="button" className="btn btn-warning position-relative lo"   onClick={()=>{
-
-NavCart("/cart")
-              }}>
-              <GiShoppingCart /> Cart
-  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-    99+
-    <span class="visually-hidden">unread messages</span>
-  </span>
-
-</button>
-
               <button
-                  className="btn btn-danger logout"
-                  onClick={handleSignOut}
-                >
-                  SignOut
-                </button>
+                type="button"
+                className="btn btn-warning position-relative lo"
+                onClick={() => {
+                  NavCart("/cart");
+                }}
+              >
+                <GiShoppingCart /> Cart
+                <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                  99+
+                  <span className="visually-hidden">unread messages</span>
+                </span>
+              </button>
+
+              <button className="btn btn-danger logout" onClick={handleSignOut}>
+                SignOut
+              </button>
             </div>
           </div>
 
@@ -124,6 +132,7 @@ NavCart("/cart")
           </div>
         </div>
       </div>
+      </CartStore>
     </>
   );
 };
