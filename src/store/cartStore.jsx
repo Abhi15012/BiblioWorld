@@ -1,14 +1,17 @@
 import React, { createContext, useEffect, useMemo, useReducer, useState } from "react";
 import axios from "axios"; // Add this line to import axios
-import CartComp from "../components/buyPageComp/cartComp";
-import { useNavigate } from "react-router-dom";
+
+
 import { Flip, toast } from "react-toastify";
 import { onAuthStateChanged } from "firebase/auth";
 import { AuthO } from "../components/firebase";
+
 export const GetUserData = createContext({
   AddBookData: () => {},
   DeleteBookCart: () => {},
   LinkArr: [],
+  quantitydata:()=>{},
+  dataQuant:[]
 });
 
 
@@ -54,7 +57,7 @@ const [userData, setUserData]=useState()
     []
   );
   const [storeGetData, dispatchStoreData] = useReducer(redFun, DummyData);
-  const nav = useNavigate();
+
 
   const AddBookData = (Bid, Bname, BPrice, BAuthor) => {
     dispatchStoreData({
@@ -79,7 +82,11 @@ const [userData, setUserData]=useState()
   };
 
   // const memoizedStoreGetData = useMemo(() => storeGetData, [storeGetData]);
+  const [dataQuant, setQuant]=useState([])
+const quantitydata=(value)=>{
+setQuant(value) ;
 
+}
   useEffect(() => {
     const submitData = async () => {
       try {
@@ -106,11 +113,11 @@ const [userData, setUserData]=useState()
     }
   }, [storeGetData]);
 
-  return (
-    <GetUserData.Provider value={{ LinkArr: storeGetData, AddBookData, DeleteBookCart }}>
+  return  (
+    <GetUserData.Provider value={{ LinkArr: storeGetData, AddBookData, DeleteBookCart , quantitydata, dataQuant}}>
       {children}
-      <CartComp />
-      {/* <CardBuy /> */}
+  
+     
     </GetUserData.Provider>
   );
 };

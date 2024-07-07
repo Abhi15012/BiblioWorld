@@ -8,20 +8,18 @@ import { FaEye, FaRegEyeSlash } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthO } from "./firebase";
 import { toast } from "react-toastify";
-
+import "../index.css";
 const LoginPage = () => {
   const navigate = useNavigate();
-  const [visibleEye, setVisibleEye] = useState(false);
-  const [displayText, setText] = useState("password");
+
+  const [displayText, setText] = useState(true);
   const [getEmail, setEmail] = useState("");
 
   const [getPassword, setPassword] = useState("");
 
   const toggleVisibility = () => {
-    setVisibleEye(!visibleEye);
-    setText("text");
+    setText(!displayText);
   };
-
 
   async function handleLogin(event) {
     event.preventDefault(); // Prevent default form submission behavior
@@ -37,11 +35,6 @@ const LoginPage = () => {
       setTimeout(() => {
         navigate("/");
       }, 2000);
-      // await axios.post(
-      //   "https://bookbuy-8cca8-default-rtdb.firebaseio.com/register.json",
-      //   obj
-      // );
-      // alert("Submitted successfully");
     } catch (error) {
       console.error("Error creating user:", error);
       toast.error(`Error: ${error.message}`);
@@ -50,6 +43,9 @@ const LoginPage = () => {
 
   return (
     <div className={styles.cont}>
+      <div className="loginText">
+        <h3> Welcome to Biblioworld! </h3>
+      </div>
       <div className="container12">
         <form className={styles.container}>
           <h2>Login</h2>
@@ -63,19 +59,18 @@ const LoginPage = () => {
               id="id"
               className={styles.email}
             />
-            <div className={styles.eye}>
+            <div className="flex justify-items-start ">
               <input
-                type={displayText}
-                className={styles.email}
+                type={displayText ? "password" : "text"}
+                className={styles.password}
                 placeholder="Password"
                 onChange={(event) => setPassword(event.target.value)}
                 id="Password"
                 // value={getPassword}
               />
-
-              <button onClick={toggleVisibility}>
-                {visibleEye === false ? <FaEye /> : <FaRegEyeSlash />}
-              </button>
+              <div className="box123" onClick={toggleVisibility}>
+                {displayText ? <FaEye /> : <FaRegEyeSlash />}
+              </div>
             </div>
           </div>
 
