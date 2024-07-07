@@ -11,6 +11,7 @@ import { toast } from "react-toastify";
 import CartStore from "../../store/cartStore";
 import CartPreview from "../buyPageComp/cart/cartPreview";
 import { FcSearch } from "react-icons/fc";
+import Sidebar from "../buyPageComp/sidebar";
 
 
 
@@ -78,7 +79,7 @@ const BuyPage = () => {
     <>
    
         <div className= "Page" >
-          <div className="sidebar"></div>
+          <div className="sidebar"><Sidebar/></div>
           <div className="mainbox">
             <div className="searchBar">
               <div className="searchComp">

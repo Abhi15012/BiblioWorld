@@ -75,7 +75,7 @@ width:100%;
 height: 100vh;
 /* border: 4px solid red; */
 
-background-image: url('./store/1600w-KEmFgDG0z8M.webp.crdownload');
+background-image: url('../library-art-book-theme-rth0ek661fi3zdwz.jpg');
 background-size: cover;
 }
 .rating{
@@ -132,16 +132,16 @@ margin-top: 10px;
 .mainBar{
   margin-left: 20px;
   grid-row: 2/2;
-  box-shadow: 2px 7px 9px 2px #414040;
+
 overlay: none;
-  /* background:linear-gradient(to bottom ,#e5e4e49a , #cacacad5); */
+   background:linear-gradient(to bottom ,#cecbcbac , #524646e9); 
 border-radius: 20px;
 display: grid;
 
      align-content: flex-start;
    
-   background-repeat: no-repeat;
-   background-position:right;
+   /* background-repeat: no-repeat; */
+   /* background-position:right; */
    background-size:24%;
    margin-right: 6px;
     grid-template-rows: 10% 80% 10%;
@@ -176,13 +176,16 @@ margin-left: 10px;
   margin-bottom: 50px;
 }
 ::-webkit-scrollbar-track{
-background-color: #ffffff27;
+background-color: #ffffff00;
 border-radius: 10px;
 height: 10px;
 
 }
 ::-webkit-scrollbar-thumb{
-  background: radial-gradient(circle,rgba(232, 21, 255, 0.968), rgba(24, 6, 0, 0.858));
+  background: radial-gradient(circle, #f0f0f0, #1E90FF);
+  /* background: radial-gradient(circle, #D3D3D3, #00008B); */
+ 
+
   border-radius: 10px;
   cursor: pointer;
 }
@@ -225,6 +228,7 @@ text-align: center;
 .card12:hover{
   min-width:350px;
 background: linear-gradient(to bottom, rgba(144, 164, 242, 0.859),#d690e0ea);
+ /* background: linear-gradient(to bottom, #FFFDD0, #ffe23cc2);  */
 margin-right: 20px;
 border-top: 1px solid rgba(119, 117, 117, 0.742);
 
@@ -288,14 +292,14 @@ color:rgb(208, 12, 12);
 min-width: 200px;
   width: 400px ;
   height: 150px;
-  background-color: #e4e1e1df;
+  background-color: #a6a3a3be;
 
-  border-radius: 50px;
+  border-radius: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
 flex-direction: column;
-margin: 100px auto 100px 350px;
+margin: 200px auto auto auto;
 }
 .loginText{
 position: fixed;
@@ -314,7 +318,10 @@ transition: all  6s ease-in ;
   align-items: center;
 flex-direction: column;
 }
+.sidebar{
+position: fixed;
 
+}
 
 .loginText h3{
   color: #000002d6;
@@ -340,4 +347,10 @@ margin:10px 0px;
   font-weight:600;
 margin:10px 0px;
 color: #ea11f1;
+}
+
+.hello{
+height: 99vh;
+  width: 110px;
+ background: linear-gradient(to bottom , #c9c9c9af ,#7431319c);
 }
