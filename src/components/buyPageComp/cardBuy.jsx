@@ -17,31 +17,31 @@ const CardBuy = ({ BookData }) => {
     const bookAuthor = items.volumeInfo.authors?.join(", ") || "Unknown"; // Handle multiple authors
 
     return (
-      <div key={items.id} className="card12">
-        <button type="button" className="btn rating">
-          <TbStars style={{ color: "gold" }} />
-          <span
-            className="badge"
-            style={{ backgroundColor: "gold", color: "black" }}
+      <div key={items.id} className="card12 ">
+        <button type="button" className="float-right bg-green-300 mr-4">
+          <TbStars     className="text-yellow-600  mr-5 "  />
+          <p
+        className="text-black text-sm font-bold mr-4"
+          
           >
             {items.volumeInfo.averageRating}
-          </span>
+          </p>
         </button>
 
-        <img src={thumbnail} className="card-img" alt="Book Thumbnail" />
+        <img src={thumbnail} className="mt-9 mx-28 shadow-md shadow-gray-500" alt="Book Thumbnail" />
         <div className="card-body">
-          <div className="crTitle">{items.volumeInfo.title}</div>
-          <p className="textcard">{items.volumeInfo.authors}</p>
-          <p className="Pricecard">
-            <FaRupeeSign /> : {items.saleInfo.retailPrice?.amount}
+          <div className="text-lg font-bold text-orange-800">{items.volumeInfo.title}</div>
+          <p className="text-md font-bold text-sky-600">{items.volumeInfo.authors}</p>
+          <p className="flex  justify-center ">
+        <FaRupeeSign />    <p className="-mt-1"> : {items.saleInfo.retailPrice?.amount}</p>
           </p>
 
-          <Link to="/pricePage" className="btn btn-light buy">
+          <Link to="/pricePage" className="bg-green-500 rounded-md ">
             Buy Now
           </Link>
 
           <button
-            className="btn btn-warning"
+            className=""
             onClick={() => {
               AddBookData(bookID, bookName, bookPrice, bookAuthor);
             }}

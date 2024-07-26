@@ -108,9 +108,9 @@ quantitydata(quantity)
   return <><div className={styles.name}>
       {Array.isArray(cart) && cart.length > 0 ? (
         cart.map((item, index) => (
-          <div key={index} className="cartComp">
-            <ul>
-              <li>{item.BookName}</li>
+          <div key={index} className="cartComp bg-slate-500">
+            <ul className="items">
+              <li className="text-red-600">{item.BookName}</li>
               <li>{item.BookAuthor}</li>
               <li>{item.BooKPrice}</li>
               <li>{item.quantity}</li>

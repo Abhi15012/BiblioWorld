@@ -1,50 +1,49 @@
 import React from 'react'
-
+import { BiPurchaseTag } from 'react-icons/bi'
+import { FaBookReader } from 'react-icons/fa'
+import { MdFavoriteBorder, MdLibraryBooks, MdRateReview } from 'react-icons/md'
+import { Link } from 'react-router-dom'
+import CartPreview from './cart/cartPreview'
 const Sidebar = () => {
   return <>
     <div class="d-flex flex-column   hello" >
-    <a href="/" class="d-block p-3 link-body-emphasis text-decoration-none" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Icon-only">
+    <a href="/" class="d-block p-3  mb-5 link-body-emphasis text-decoration-none" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Icon-only">
     <div className='w-4'>hello</div>
     </a>
     <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
       <li class="nav-item">
-        <a href="#" class="nav-link active py-3 border-bottom rounded-0" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
+        <Link to="/ebook" className=" text-black bg-success nav-link mt-5  py-3 border-bottom rounded-md" aria-current="page" >
+        <MdLibraryBooks /> eBooks
+        </Link>
+   </li>
+   
+    
+      
+
+      <li>
+        <Link to="fav" className="text-black bg-danger nav-link mt-2 py-2 border-bottom rounded-md" data-bs-toggle="tooltip" >
+        <MdFavoriteBorder />Favorites
+        </Link>
+      </li>
+      <li>
+        <Link  to="Rev" class=" text-black bg-white nav-link mt-2 py-3 border-bottom rounded-md" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Orders" data-bs-original-title="Orders">
+        <MdRateReview />          Reviews
+        </Link>
+      </li>
+      <li>
+        <Link  to="orders" class=" nav-link  text-black bg-warning  py-3 border-bottom mt-2 rounded-md " data-bs-toggle="tooltip"  data-bs-placement="right" aria-label="Products" data-bs-original-title="Products">
+        <BiPurchaseTag />   orders
+        </Link>
+      </li>
+      <li>
+        <Link  to="info" class=" text-black bg-info nav-link py-3  mt-2 border-bottom rounded-md " data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Customers" data-bs-original-title="Customers">
          
-        </a>
-      </li>
-      <li>
-        <a href="#" class="nav-link py-3 border-bottom rounded-0" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Dashboard" data-bs-original-title="Dashboard">
-          <svg class="bi pe-none" width="24" height="24" role="img" aria-label="Dashboard"><use xlink:href="#speedometer2"></use></svg>
-        </a>
-      </li>
-      <li>
-        <a href="#" class="nav-link py-3 border-bottom rounded-0" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Orders" data-bs-original-title="Orders">
-          <svg class="bi pe-none" width="24" height="24" role="img" aria-label="Orders"><use xlink:href="#table"></use></svg>
-        </a>
-      </li>
-      <li>
-        <a href="#" class="nav-link py-3 border-bottom rounded-0" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Products" data-bs-original-title="Products">
-          <svg class="bi pe-none" width="24" height="24" role="img" aria-label="Products"><use xlink:href="#grid"></use></svg>
-        </a>
-      </li>
-      <li>
-        <a href="#" class="nav-link py-3 border-bottom rounded-0" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Customers" data-bs-original-title="Customers">
-          <svg class="bi pe-none" width="24" height="24" role="img" aria-label="Customers"><use xlink:href="#people-circle"></use></svg>
-        </a>
+          <FaBookReader />
+           To Read
+        </Link>
       </li>
     </ul>
-    <div class="dropdown border-top">
-      <a href="#" class="d-flex align-items-center justify-content-center p-3 link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-        <img src="https://github.com/mdo.png" alt="mdo" width="24" height="24" class="rounded-circle" />
-      </a>
-      <ul class="dropdown-menu text-small shadow">
-        <li><a class="dropdown-item" href="#">New project...</a></li>
-        <li><a class="dropdown-item" href="#">Settings</a></li>
-        <li><a class="dropdown-item" href="#">Profile</a></li>
-        <li><hr class="dropdown-divider" /></li>
-        <li><a class="dropdown-item" href="#">Sign out</a></li>
-      </ul>
-    </div>
+   
   </div>
   </>
 }

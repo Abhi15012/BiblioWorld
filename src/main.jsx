@@ -10,7 +10,7 @@ import BuyPage from "./components/ApiPage/BuyPage.jsx";
 import SellPage from "./components/ApiPage/SellPage.jsx";
 import "react-toastify/dist/ReactToastify.css";
 import { Bounce, Flip, ToastContainer, Zoom } from "react-toastify";
-import "bootstrap/dist/css/bootstrap.min.css";
+
 import './App.css'
 import EBooksSB from "./components/buyPageComp/eBooksSB.jsx";
 import FavoritesSB from "./components/buyPageComp/FavoritesSB.jsx";
@@ -20,6 +20,16 @@ import ToReadSb from "./components/buyPageComp/toReadSb.jsx";
 import CartComp from "./components/buyPageComp/cart/cartComp.jsx";
 import PricePage from "./components/buyPageComp/pricePage.jsx";
 import CartPreview from "./components/buyPageComp/cart/cartPreview.jsx";
+import Sidebar from "./components/buyPageComp/sidebar.jsx";
+
+
+
+
+
+
+
+
+
 
 const router = createBrowserRouter([
   
@@ -29,14 +39,18 @@ const router = createBrowserRouter([
   { path: "/signup", element: <SignUp /> },
   { path: "/cart", element: <CartComp /> },
   { path: "/previw", element: <CartPreview/> },
+  { path: "/", element: <BuyPage></BuyPage>, 
 
-  { path: "/", element: <BuyPage></BuyPage> },
+children:[
+  { path: "ebook", element: <EBooksSB /> },
+   
+      { path: "fav", element: <FavoritesSB /> },
+      { path: "orders", element: <PurchasedSB /> },
+      { path: "Rev", element: <ReviewSB /> },
+      { path: "info", element: <ToReadSb /> },
+
+ ] }  ,
   { path: "/Sell", element: <SellPage></SellPage> },
-  { path: "/ebook", element: <EBooksSB /> },
-  { path: "/fav", element: <FavoritesSB /> },
-  { path: "/Buy", element: <PurchasedSB /> },
-  { path: "/Rev", element: <ReviewSB /> },
-  { path: "/info", element: <ToReadSb /> },
   { path: "/PricePage", element: <PricePage /> }
 ]);
 ReactDOM.createRoot(document.getElementById("root")).render(

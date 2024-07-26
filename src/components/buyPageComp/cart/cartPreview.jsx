@@ -17,17 +17,16 @@ const {dataQuant} = useContext(GetUserData)
     
         <button
           type="button"
-          className="btn btn-warning position-relative "
+          className=" bg-gradient-to-r from-yellow-600 to-yellow-300 hover:from-yellow-300 hover:to-yellow-700  md:w-20 w-full justify-center flex gap-2 h-10 pt-2 pl-2 rounded-xl "
           onClick={() => {
             NavCart("/cart");
           }}
         >
-          <GiShoppingCart /> Cart
-          <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-          {dataQuant}
+          <span className="pt-1 text-center ">  <GiShoppingCart /> </span>
+        Cart
+    
 
-            <span className="visually-hidden">unread messages</span>
-          </span>
+       
         </button>
       </div>
     </>

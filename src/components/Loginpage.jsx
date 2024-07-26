@@ -78,7 +78,7 @@ const LoginPage = () => {
             <input
               type="button"
               value="Login"
-              className={`btn btn-info ${styles.buttonbar}`}
+              className="bg-sky-500 mb-10"
               onClick={handleLogin}
             />
           </div>

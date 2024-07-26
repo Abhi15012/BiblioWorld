@@ -2,7 +2,13 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300..900&family=Niconne&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,400..700;1,400..700&display=swap');
- .color{
+ 
+
+@import url('https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+
+.color{
 filter: blur(90px);
   position: absolute;
 } .color:nth-child(1){
@@ -74,7 +80,7 @@ filter: blur(90px);
 width:100%;
 height: 100vh;
 /* border: 4px solid red; */
-
+overflow: hidden;
 background-image: url('../library-art-book-theme-rth0ek661fi3zdwz.jpg');
 background-size: cover;
 }
@@ -89,7 +95,7 @@ overflow: hidden;
 }
 
 .mainbox{
-margin-left: 100px;
+
 /* border: 2px solid rgb(241, 248, 12); */
 height: 100%;
 
@@ -104,7 +110,7 @@ filter:contrast(1.2);
 }
 .searchBar{
   margin-top: 10px;
-  margin-left: 12px;
+  margin-left: 15px;
   grid-row: 1/1;
 background:linear-gradient(to bottom ,#f4f4f4fc , #cbcbcb);
 box-shadow: 1px 5px 10px 0px #454141;
@@ -127,14 +133,26 @@ margin-right: 4px;
 margin-top: 10px;
 }
 
+.cartComp{
+  
+ display: flex;
 
+align-items: center;
+background-color: #1E90FF;
+width:500px;
+
+}
+.items{
+list-style: none;
+
+}
 
 .mainBar{
   margin-left: 20px;
   grid-row: 2/2;
 
 overlay: none;
-   background:linear-gradient(to bottom ,#cecbcbac , #524646e9); 
+   /* background:radial-gradient(circle ,#cecbcb00 , #746e6ee9);  */
 border-radius: 20px;
 display: grid;
 
@@ -182,9 +200,8 @@ height: 10px;
 
 }
 ::-webkit-scrollbar-thumb{
-  background: radial-gradient(circle, #f0f0f0, #1E90FF);
-  /* background: radial-gradient(circle, #D3D3D3, #00008B); */
- 
+  /* background: radial-gradient(circle, #f0f0f0, #1E90FF); */
+   background: radial-gradient(circle, #e8f852, #ee0808); 
 
   border-radius: 10px;
   cursor: pointer;
@@ -260,11 +277,14 @@ width: 500px;
 }
 
 .searchBut{
- 
-  width: 70px;
+ border: none;
+ border-radius: 5px;
+  width: 90px;
   height:40px;
-margin-left: 20px;
+margin-left: 10px;
 margin-top: 8px;
+background: linear-gradient(to bottom, rgb(49, 236, 249),
+rgb(137, 241, 250));
 }
 .buttons{
 width: 300px;
@@ -294,12 +314,27 @@ min-width: 200px;
   height: 150px;
   background-color: #a6a3a3be;
 
+   
+
+  
   border-radius: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
 flex-direction: column;
 margin: 200px auto auto auto;
+}
+
+.welcome{
+
+  font-family: "Love Ya Like A Sister", cursive;
+  font-weight: bolder;
+  font-style: normal;
+}
+.title12{
+  font-family: "Love Ya Like A Sister", cursive;
+  font-weight: bolder;
+  font-style: normal;
 }
 .loginText{
 position: fixed;
@@ -320,7 +355,8 @@ flex-direction: column;
 }
 .sidebar{
 position: fixed;
-
+top:2px;
+right: 99%;
 }
 
 .loginText h3{
@@ -331,14 +367,7 @@ position: fixed;
     font-size: 30px;
     font-weight:600;
   }
-.welcomeMsg h3{
-color: #f90a91bc;
-;
 
-
-  font-size: 30px;
-  font-weight: bolder;
-}
 .welcomeMsg i{
   font-weight: bold;
 margin:10px 0px;
@@ -346,11 +375,17 @@ margin:10px 0px;
 .welcomeMsg p{
   font-weight:600;
 margin:10px 0px;
-color: #ea11f1;
+color: #0d020d;
 }
 
 .hello{
-height: 99vh;
+height: 97vh;
   width: 110px;
- background: linear-gradient(to bottom , #c9c9c9af ,#7431319c);
+ background: linear-gradient(to bottom , #fbf9f9fb ,#7431319c);
+ border-radius: 5px;
+ box-shadow: 2px 3px 3px 0px rgba(255, 255, 255, 0.564);
+ margin-left: 1px;
+z-index: 2;
+margin-top: 10px;
+
 }
