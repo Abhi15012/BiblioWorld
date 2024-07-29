@@ -18,12 +18,7 @@ export const GetUserData = createContext({
 
 
 const DummyData = [
-  {
-    BookName: "The Hitchhiker's Guide to the Galaxy",
-    BookAuthor: "Douglas Adams",
-    BookID: "A12awes",
-    BooKPrice: 216,
-  },
+
 ];
 
 const redFun = (storeGetData, action) => {

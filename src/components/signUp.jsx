@@ -56,7 +56,7 @@ const SignUp = () => {
 
 
         <form onSubmit={handleSignUp} className={styles.container}>
-          <h4>Create an account</h4>
+          <h4 className="font-semibold text-xl">Create an account</h4>
 
           <div className={styles.InputBar}>
             <label htmlFor="name" className="label" id="name">
@@ -112,7 +112,7 @@ const SignUp = () => {
             <input
               type="submit"
               value="Create account"
-              className={`btn btn-success ${styles.buttonbar}`}
+              className={`btn btn-success ${styles.buttonbar} bg-green-600 w-40 h-10 rounded-md hover:bg-green-400`}
             />
           </div>
         </form>

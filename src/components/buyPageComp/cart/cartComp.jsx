@@ -6,12 +6,17 @@ import Spinner from "../spinner";
 import styles from "./cartComp.module.css";
 import CartPreview from "./cartPreview";
 import { GetUserData } from "../../../store/cartStore";
+import { MdDeleteForever } from "react-icons/md";
+import { FaCartShopping } from "react-icons/fa6";
+import { IoMdAddCircle } from "react-icons/io";
+import { Link, useNavigate } from "react-router-dom";
 
 const ListComponent = ({ delitem }) => {
+  const nav = useNavigate();
   const [accountData, setAccountData] = useState(null);
   const [userUid, setUserUid] = useState(null);
   const [cart, setCart] = useState([]);
-const {quantitydata} = useContext(GetUserData)
+  const { quantitydata } = useContext(GetUserData);
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(AuthO, (currentUser) => {
       if (currentUser) {
@@ -20,7 +25,6 @@ const {quantitydata} = useContext(GetUserData)
         setUserUid(null);
       }
     });
-
 
     return () => unsubscribe();
   }, []);
@@ -66,7 +70,10 @@ const {quantitydata} = useContext(GetUserData)
         if (combinedItems[element.BookID]) {
           combinedItems[element.BookID].quantity += element.quantity + 1;
         } else {
-          combinedItems[element.BookID] = { ...element, quantity: element.quantity + 1 };
+          combinedItems[element.BookID] = {
+            ...element,
+            quantity: element.quantity + 1,
+          };
         }
       });
       setCart(Object.values(combinedItems));
@@ -92,51 +99,106 @@ const {quantitydata} = useContext(GetUserData)
       </div>
     );
   }
-  let quantity= 0; 
+  let quantity = 0;
 
-let price=0;
+  let price = 0;
   cart.map((item, index) => {
-   
-   price=item.BooKPrice
-   quantity +=item.quantity
- 
-})
+    quantity += item.quantity;
+    price += item.BooKPrice * item.quantity;
+  });
 
-quantitydata(quantity)
+  console.log(price);
+  quantitydata(quantity);
 
+  const backToBuy = () => {
+    let ab = confirm("Add more items");
+    if (ab) {
+      nav("/");
+    }
+  };
 
-  return <><div className={styles.name}>
-      {Array.isArray(cart) && cart.length > 0 ? (
-        cart.map((item, index) => (
-          <div key={index} className="cartComp bg-slate-500">
-            <ul className="items">
-              <li className="text-red-600">{item.BookName}</li>
-              <li>{item.BookAuthor}</li>
-              <li>{item.BooKPrice}</li>
-              <li>{item.quantity}</li>
-            </ul>
-            <button
-              className="btn btn-danger"
-              onClick={() => handleDelete(item.BookID)}
-            >
-              Remove
-            </button>
+  return (
+    <>
+      <div className=" h-screen flex bg-gradient-to-r from-sky-500 to-indigo-500 justify-center">
+        <div className=" flex flex-col pt-10 items-center gap-2 max-w-[2000px] bg-gradient-to-r from-purple-500 rounded-xl to-pink-300 overflow-y-auto">
+          <h2 className="text-2xl font-semibold text-slate-900 font-serif flex gap-1 pt-3">
+            Cart{" "}
+            <span className="mt-1 text-yellow-400">
+              <FaCartShopping />{" "}
+            </span>
+          </h2>
+          <h2
+            className="text-xl text-green-700 font-bold float-right  cursor-pointer "
+            onClick={backToBuy}
+          >
+            <IoMdAddCircle />
+          </h2>
+
+          <br />
+          <div className="flex md:gap-24 gap-1 text-2xl font-bold text-slate-900 justify-start  md:mr-10">
+            <h2 className="">Book Name</h2>|<h2> Authour</h2>|
+            <h2> Price (Rs)</h2>|<h2> Quantity</h2>
           </div>
-        ))
+          {Array.isArray(cart) && cart.length > 0 ? (
+            cart.map((item, index) => {
+              const price = item.BooKPrice * item.quantity;
 
-      ) : (
-        <>
-        <div>No data available</div>
-   
-</>
-        
-      )}
-    </div> </> 
-    
+              return (
+                <>
+                  <div
+                    key={index}
+                    className="flex justify-start   md:min-h-28 w-full items-center  overflow-hidden rounded-md bg-gradient-to-r from-yellow-300 to-red-300  "
+                  >
+                    <div className="text-gray-900 text-lg font-serif font-semibold w-40 float-left mt-1 md:ml-20 md:mr-20  h-20 ">
+                      {item.BookName}
+                    </div>
+                    <div className="text-cyan-950 text-md w-28 ml-2 md:mr-8 flex  font-semibold ">
+                      {item.BookAuthor}
+                    </div>
 
-  
-    
-  ;
+                    <div className="text-red-600 font-bold text-lg md:ml-40  ml-2 mr-20">
+                      {item.BooKPrice}
+                    </div>
+                    <div className="text-black text-xl font-bold  md:ml-80 md:mr-10">
+                      {item.quantity}
+                    </div>
+
+                    <button
+                      className="w-10 text-center flex justify-center items-center  h-10 rounded-lg hover:from-pink-500 hover:to-red-600 bg-gradient-to-r from-red-500 to-red-600  ml-10 "
+                      onClick={() => handleDelete(item.BookID)}
+                    >
+                      <p className="text-2xl">
+                        <MdDeleteForever />
+                      </p>
+                    </button>
+                  </div>
+                </>
+              );
+            })
+          ) : (
+            <>
+              <div>No data available</div>
+            </>
+          )}
+          <div className="flex flex-row">
+            <p className="text-xl font-mono font-semibold w-full ">
+              Total :{price}
+            </p>{" "}
+            <Link to="/pricePage">
+            {price===0 ? null :    <button
+                className="  ml-10 bg-gradient-to-r from-green-500 w-20 to-green-400 hover:bg-green-400 h-10 text-xl font-medium rounded-lg"
+                onClick={nav}
+              >
+                {" "}
+                Buy{" "}
+              </button>}
+           
+            </Link>
+          </div>
+        </div>
+      </div>{" "}
+    </>
+  );
 };
 
 export default ListComponent;

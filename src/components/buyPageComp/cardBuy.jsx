@@ -30,23 +30,23 @@ const CardBuy = ({ BookData }) => {
 
         <img src={thumbnail} className="mt-9 mx-28 shadow-md shadow-gray-500" alt="Book Thumbnail" />
         <div className="card-body">
-          <div className="text-lg font-bold text-orange-800">{items.volumeInfo.title}</div>
-          <p className="text-md font-bold text-sky-600">{items.volumeInfo.authors}</p>
-          <p className="flex  justify-center ">
-        <FaRupeeSign />    <p className="-mt-1"> : {items.saleInfo.retailPrice?.amount}</p>
+          <div className="text-lg font-bold text-orange-300  h-14 overflow-y-hidden">{items.volumeInfo.title}</div>
+          <p className="text-md font-bold text-sky-300 ">{items.volumeInfo.authors}</p>
+          <p className="flex  justify-center text-white ">
+        <FaRupeeSign />    <p className="-mt-1 text-white "> : {items.saleInfo.retailPrice?.amount}</p>
           </p>
 
-          <Link to="/pricePage" className="bg-green-500 rounded-md ">
-            Buy Now
+          <Link to="/pricePage">
+         <button  className="bg-green-600  hover:bg-green-500 w-2/6 h-10 rounded-md font-semibold ">Buy Now</button>
           </Link>
 
           <button
-            className=""
+            className="bg-yellow-400 w-2/6 ml-3 h-10 mt-4 hover:bg-yellow-300 rounded-lg text-center font-semibold"
             onClick={() => {
               AddBookData(bookID, bookName, bookPrice, bookAuthor);
             }}
           >
-            <GiShoppingCart /> Add to Cart
+          Add to Cart
           </button>
         </div>
       </div>

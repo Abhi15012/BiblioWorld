@@ -44,11 +44,14 @@ const LoginPage = () => {
   return (
     <div className={styles.cont}>
       <div className="loginText">
-        <h3> Welcome to Biblioworld! </h3>
+        <h3 className="welcome text-white text-4xl font-extrabold">
+          {" "}
+          Biblioworld!{" "}
+        </h3>
       </div>
       <div className="container12">
         <form className={styles.container}>
-          <h2>Login</h2>
+          <h2 className="font-semi-bold text-2xl">Login</h2>
 
           <div className={styles.InputBar}>
             <input
@@ -68,29 +71,29 @@ const LoginPage = () => {
                 id="Password"
                 // value={getPassword}
               />
-              <div className="box123" onClick={toggleVisibility}>
+              <div className="box123 " onClick={toggleVisibility}>
                 {displayText ? <FaEye /> : <FaRegEyeSlash />}
               </div>
             </div>
           </div>
 
           <div>
-            <input
-              type="button"
-              value="Login"
-              className="bg-sky-500 mb-10"
+            <button
+              className="bg-sky-500 rounded-md h-10 w-24 hover:bg-sky-400 mb-10"
               onClick={handleLogin}
-            />
+            >
+              Login
+            </button>
           </div>
 
           <div className={styles.text}>
             <p>Forgot Password ? </p>
-            <a href="x.com">generate new password</a>
+            <a href="x.com" className="text-blue-600">generate new password</a>
           </div>
 
           <div className={styles.text1}>
             <p>Don't have an account ? </p>
-            <Link to="/signup">sign up</Link>
+            <Link to="/signup" className="text-blue-600">sign up</Link>
           </div>
         </form>
       </div>

@@ -1,51 +1,53 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { BiPurchaseTag } from 'react-icons/bi'
 import { FaBookReader } from 'react-icons/fa'
 import { MdFavoriteBorder, MdLibraryBooks, MdRateReview } from 'react-icons/md'
 import { Link } from 'react-router-dom'
 import CartPreview from './cart/cartPreview'
 const Sidebar = () => {
-  return <>
+
+
+
+  return <div className={`fixed  `}  >
     <div class="d-flex flex-column   hello" >
-    <a href="/" class="d-block p-3  mb-5 link-body-emphasis text-decoration-none" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Icon-only">
-    <div className='w-4'>hello</div>
+    <a href="/" class="d-block p-3  text-lg font-md mb-5 link-body-emphasis text-decoration-none" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Icon-only">
+    <div className='w-4 font-medium ml-4 text-white'>Home </div>
     </a>
-    <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
+    <ul class="flex flex-col gap-3">
       <li class="nav-item">
-        <Link to="/ebook" className=" text-black bg-success nav-link mt-5  py-3 border-bottom rounded-md" aria-current="page" >
-        <MdLibraryBooks /> eBooks
+        <Link to="/ebook" className=" text-black bg-green-500 font-semibold hover:bg-green-400  flex gap-3 h-14 pt-4 rounded-md" aria-current="page" >
+     <span  className='pt-1 pl-2 text-2xl'> <MdLibraryBooks /> </span>  eBooks
         </Link>
    </li>
    
-    
-      
 
-      <li>
-        <Link to="fav" className="text-black bg-danger nav-link mt-2 py-2 border-bottom rounded-md" data-bs-toggle="tooltip" >
-        <MdFavoriteBorder />Favorites
+      
+  
+   <li class="nav-item">
+        <Link to="/ebook" className=" text-black bg-red-500 font-semibold hover:bg-red-400  flex gap-3 h-14 pt-4 rounded-md" aria-current="page" >
+     <span  className='pt-1 pl-2 text-2xl'> <MdFavoriteBorder />  </span>    Favorites
         </Link>
-      </li>
-      <li>
-        <Link  to="Rev" class=" text-black bg-white nav-link mt-2 py-3 border-bottom rounded-md" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Orders" data-bs-original-title="Orders">
-        <MdRateReview />          Reviews
+   </li>
+   <li class="nav-item">
+        <Link to="/ebook" className=" text-black bg-purple-500 font-semibold hover:bg-purple-400  flex gap-3 h-14 pt-4 rounded-md" aria-current="page" >
+     <span  className='pt-1 pl-2 text-2xl'>    <MdRateReview />   </span>        Reviews
         </Link>
-      </li>
-      <li>
-        <Link  to="orders" class=" nav-link  text-black bg-warning  py-3 border-bottom mt-2 rounded-md " data-bs-toggle="tooltip"  data-bs-placement="right" aria-label="Products" data-bs-original-title="Products">
-        <BiPurchaseTag />   orders
+   </li>
+   <li class="nav-item">
+        <Link to="/ebook" className=" text-black bg-yellow-500 font-semibold hover:bg-yellow-400  flex gap-3 h-14 pt-4 rounded-md" aria-current="page" >
+     <span  className='pt-1 pl-2 text-2xl'>  <BiPurchaseTag />    </span>  orders
         </Link>
-      </li>
-      <li>
-        <Link  to="info" class=" text-black bg-info nav-link py-3  mt-2 border-bottom rounded-md " data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Customers" data-bs-original-title="Customers">
-         
-          <FaBookReader />
-           To Read
+   </li>
+   <li class="nav-item">
+        <Link to="/ebook" className=" text-black bg-slate-600 font-semibold hover:bg-slate-500  flex gap-3 h-14 pt-4 rounded-md" aria-current="page" >
+     <span  className='pt-1 pl-2 text-2xl'>  <FaBookReader />
+</span>       To Read
         </Link>
-      </li>
+   </li>
     </ul>
    
   </div>
-  </>
+  </div>
 }
 
 export default Sidebar

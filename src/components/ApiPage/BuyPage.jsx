@@ -13,6 +13,8 @@ import CartPreview from "../buyPageComp/cart/cartPreview";
 import { FcSearch } from "react-icons/fc";
 import Sidebar from "../buyPageComp/sidebar";
 import WelcomeMsg from "../buyPageComp/cart/welcomeMsg";
+import { FaBars } from "react-icons/fa";
+import { BsArrowLeftSquare, BsArrowLeftSquareFill } from "react-icons/bs";
 
 const BuyPage = () => {
   const navigator = useNavigate();
@@ -22,6 +24,10 @@ const BuyPage = () => {
   const navigation = useNavigate();
   const inputData = useRef("");
   const [getData, setData] = useState([]);
+const [side,setside]=useState(false)
+const [symbol,setsymbol]=useState(false)
+const [welcome,setwelcome]=useState(true)
+
   useEffect(
     (user) => {
       onAuthStateChanged(AuthO, (currentUser) => {
@@ -39,7 +45,6 @@ const BuyPage = () => {
 
   async function fetchData() {
     const searchRef = inputData.current.value;
-
     try {
       const getdata = await axios.get(
         `https://www.googleapis.com/books/v1/volumes?q=${searchRef}&key=AIzaSyBEWWdDIKV-_3Bgb06FYbASntJK8cDbOCQ`
@@ -50,6 +55,7 @@ const BuyPage = () => {
     } catch (err) {
       console.log(err.message);
     }
+setwelcome(false)
   }
 
   const handleSignOut = async () => {
@@ -72,18 +78,33 @@ const BuyPage = () => {
       ? (inputData.current.value = "")
       : inputData.current.value;
   }
+  const handleSidebar=()=>{
+   setside (!side)
+   setsymbol(!symbol)
+    }
+
+
+
+
 
   return (
     <>
       <div className="Page">
-        <div className="mainbox ">
+        <div className="mainbox " >
           <div className=" w-screen flex-shrink-2 flex-col md:h-16 h-screen md:w-full  flex md:flex-row rounded-2xl ">
             <div className="">
-              <h2 className="title12 text-white mt-3 ml-10 text-3xl text-g w-fit ">
+         <div className={`fixed  ml-10  z-50 ${side===true? 'scale-100': 'scale-0'}`} >   <Sidebar /></div>
+         
+
+              <button className="text-white mt-3 ml-3 text-2xl inline hover:text-yellow-300" onClick={(event)=>{
+
+              handleSidebar()
+              }}>{symbol===true? <BsArrowLeftSquareFill/>: <FaBars/>}</button>
+              <h2 className="title12 text-white -mt-9 ml-12 text-3xl text-g w-fit ">
                 BiblioWorld!
               </h2>
             </div>
-            <div className="flex mt-5 md:mt-0 ml-2 ">
+            <div className="flex mt-5 md:mt-0 ml-20 ">
               {" "}
               <input
                 type="text"
@@ -98,7 +119,7 @@ const BuyPage = () => {
                 Search
               </button>
             </div>
-            <div className="flex md:flex-row md:ml-[300px] gap-4 mt-3 flex-col ">
+            <div className="flex md:flex-row md:ml-[200px] gap-4 mt-3 flex-col ">
               <div className="butSell">
                 {" "}
                 <button
@@ -123,15 +144,13 @@ const BuyPage = () => {
 
           <div className="mainBar scale-0 md:scale-100">
             <Outlet />
-            <WelcomeMsg />
+       {welcome===true?      <WelcomeMsg />:null}
             <div className="carddata ">
               {" "}
               <CardBuy BookData={getData} />
             </div>
 
-            <div className="sidebar">
-              <Sidebar />
-            </div>
+        
           </div>
         </div>
       </div>
