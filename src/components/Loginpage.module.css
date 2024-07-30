@@ -55,6 +55,8 @@ background-position: left;
   border-right: 1px solid rgb(171 163 163 / 56%);
   backdrop-filter: blur(8px);
   box-shadow: 6px 10px 26px  #464646bd;
+  position: relative;
+  right: 400px;
 
   font-family: "Brygada 1918", serif;
   font-optical-sizing: auto;
@@ -66,7 +68,6 @@ background-position: left;
  color :rgb(230, 37, 191);
   position: relative;
   top: -61px;
-  left: -86px
 }
 
 .email{
