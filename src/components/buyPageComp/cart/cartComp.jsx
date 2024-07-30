@@ -8,7 +8,7 @@ import CartPreview from "./cartPreview";
 import { GetUserData } from "../../../store/cartStore";
 import { MdDeleteForever } from "react-icons/md";
 import { FaCartShopping } from "react-icons/fa6";
-import { IoMdAddCircle } from "react-icons/io";
+import { IoIosCloseCircleOutline, IoMdAddCircle } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
 
 const ListComponent = ({ delitem }) => {
@@ -104,7 +104,7 @@ const ListComponent = ({ delitem }) => {
   let price = 0;
   cart.map((item, index) => {
     quantity += item.quantity;
-    price += item.BooKPrice * item.quantity;
+   price=Math.round(price += item.BooKPrice * item.quantity) 
   });
 
   console.log(price);
@@ -118,21 +118,27 @@ const ListComponent = ({ delitem }) => {
   };
 
   return (
+
     <>
       <div className=" h-screen flex bg-gradient-to-r from-sky-500 to-indigo-500 justify-center">
+        
+      <Link to="/"> <span className="fixed right-10  text-red-600 bg-black top-1  rounded-full text-3xl  class12"> <IoIosCloseCircleOutline/></span></Link> 
+      <h2
+            className="text-3xl flex text-green-700 font-bold float-right fixed right-10 top-10 cursor-pointer class12 "
+            onClick={backToBuy}
+          >
+          <IoMdAddCircle />
+          </h2>
         <div className=" flex flex-col pt-10 items-center gap-2 max-w-[2000px] bg-gradient-to-r from-purple-500 rounded-xl to-pink-300 overflow-y-auto">
+
+       
           <h2 className="text-2xl font-semibold text-slate-900 font-serif flex gap-1 pt-3">
             Cart{" "}
-            <span className="mt-1 text-yellow-400">
+            <span className="mt-1 text-yellow-400  ">
               <FaCartShopping />{" "}
             </span>
           </h2>
-          <h2
-            className="text-xl text-green-700 font-bold float-right  cursor-pointer "
-            onClick={backToBuy}
-          >
-            <IoMdAddCircle />
-          </h2>
+      
 
           <br />
           <div className="flex md:gap-24 gap-1 text-2xl font-bold text-slate-900 justify-start  md:mr-10">
@@ -141,7 +147,7 @@ const ListComponent = ({ delitem }) => {
           </div>
           {Array.isArray(cart) && cart.length > 0 ? (
             cart.map((item, index) => {
-              const price = item.BooKPrice * item.quantity;
+              const price = Math.round(item.BooKPrice) ;
 
               return (
                 <>
@@ -156,8 +162,8 @@ const ListComponent = ({ delitem }) => {
                       {item.BookAuthor}
                     </div>
 
-                    <div className="text-red-600 font-bold text-lg md:ml-40  ml-2 mr-20">
-                      {item.BooKPrice}
+                    <div className="text-red-600 font-bold text-lg md:ml-40  ml-2 mr-14">
+                    {price}
                     </div>
                     <div className="text-black text-xl font-bold  md:ml-80 md:mr-10">
                       {item.quantity}
