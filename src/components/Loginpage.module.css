@@ -23,7 +23,8 @@
     height: 100vh;
     overflow: hidden;
     display: flex;
-   
+   justify-content: center;
+   align-items: center;
 background-image: url('/library-art-book-theme-rth0ek661fi3zdwz.jpg');
  background-repeat: no-repeat;
 background-position: left;
@@ -39,8 +40,8 @@ background-position: left;
   max-height: 500px;
   height: 370px;
   width: 300px;
-  margin-left: 500px;
-  margin-top: 110px;
+
+
   border-radius: 10px;
   display: flex;
   flex-direction: column;

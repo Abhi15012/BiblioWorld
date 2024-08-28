@@ -49,12 +49,7 @@ filter: blur(90px);
 
 }
 
-.container {
-  position: relative;
-  padding: 20px;
-  border: 1px solid #ccc;
-  margin: 20px;
-}
+
 
 .content {
   font-size: 16px;
@@ -146,7 +141,30 @@ width:500px;
 list-style: none;
 
 }
+body{
+transition-property: opacity,transform,filter;
+transition-timing-function: ease-in-out;
+transition-duration: 500ms;
+}
+input[type="date"]{
+border-radius: 5px;
+  background-color: #ffffff;
+}
 
+label{
+  background-color: #e2f444;
+  width: 200px;
+  margin:auto auto;
+  border-radius: 5px;
+  font-weight: bold;
+ 
+}
+.page-trans{
+  opacity: 0;
+  background:black;
+  transform: translateY(40px);
+  filter: blur(5);
+}
 .mainBar{
   margin-left: 20px;
   grid-row: 2/2;

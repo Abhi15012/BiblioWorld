@@ -64,7 +64,7 @@ const SignUp = () => {
             </label>
             <input
               type="text"
-              name="Fullname"
+              name="name"
               onChange={(event) => setName(event.target.value)}
               id="name"
               className={styles.email}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import axios from "axios";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, Router, useNavigate } from "react-router-dom";
 import ListComponent from "../buyPageComp/cart/cartComp";
 import { onAuthStateChanged } from "firebase/auth";
 import { AuthO } from "../firebase";
@@ -124,8 +124,11 @@ setwelcome(false)
                 {" "}
                 <button
                   className="bg-gradient-to-r from-green-600 to-green-400 hover:from-blue-400 hover:to-sky-500  w-full md:w-20 h-10 rounded-xl"
-                  onClick={() => {
-                    nav("/sell");
+                  onClick={(event) => {
+                    // event.preventDefault()
+                    // // const trans=document.querySelectorAll(body)
+                    // // Router.push(href)
+                     nav("/sell");
                   }}
                 >
                   Sell Books
