@@ -4,7 +4,7 @@ import Formpage from './sellpage/Formpage'
 
 const SellPage = () => {
   return<>
-  <div className='h-screen   bg-gradient-to-b from-white to-slate-300 '>
+  <div className='h-screen overflow-y-scroll  bg-gradient-to-b from-white to-slate-300 '>
   <Navbar/>
 
 <Formpage/>
