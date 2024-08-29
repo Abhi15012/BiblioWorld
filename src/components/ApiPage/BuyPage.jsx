@@ -15,6 +15,7 @@ import Sidebar from "../buyPageComp/sidebar";
 import WelcomeMsg from "../buyPageComp/cart/welcomeMsg";
 import { FaBars } from "react-icons/fa";
 import { BsArrowLeftSquare, BsArrowLeftSquareFill } from "react-icons/bs";
+import useSignOut from "../../Hooks/useSignout";
 
 const BuyPage = () => {
   const navigator = useNavigate();
@@ -58,21 +59,7 @@ const [welcome,setwelcome]=useState(true)
 setwelcome(false)
   }
 
-  const handleSignOut = async () => {
-    toast.success(
-      "signOut successful" <
-        {
-          autoClose: 1000,
-        }
-    );
-    try {
-      await signOut(AuthO);
-      navigator("/log");
-    } catch (error) {
-      console.error("Error signing out: ", error);
-    }
-  };
-
+  const signout=useSignOut()
   {
     getData.length !== 0
       ? (inputData.current.value = "")
@@ -138,7 +125,7 @@ setwelcome(false)
 
               <button
                 className=" bg-gradient-to-r text-md from-red-400 to-pink-600 hover:from-red-500 hover:to-yellow-500 h-10 md:w-20 w-full rounded-xl  logout"
-                onClick={handleSignOut}
+                onClick={signout}
               >
                 SignOut
               </button>
