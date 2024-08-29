@@ -151,7 +151,7 @@ border-radius: 5px;
   background-color: #ffffff;
 }
 
-label{
+.hell label{
   background-color: #e2f444;
   width: 200px;
   margin:auto auto;
@@ -159,6 +159,7 @@ label{
   font-weight: bold;
  
 }
+
 .page-trans{
   opacity: 0;
   background:black;
